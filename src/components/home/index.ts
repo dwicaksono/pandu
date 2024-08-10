@@ -6,6 +6,7 @@ import Destination from "./destination";
 import Footages from "./footages";
 import PandooinWeb from "./pandooin-web";
 import Article from "./article";
+import DestinationHome from "./destination-home";
 
 export {
 	BeyondPremium,
@@ -16,4 +17,5 @@ export {
 	Footages,
 	Article,
 	PandooinWeb,
+	DestinationHome,
 };
