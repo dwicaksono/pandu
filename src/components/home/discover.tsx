@@ -1,11 +1,12 @@
 import Image from "next/image";
 import React from "react";
 import discoverImage from "../../../public/images/discovery.webp";
+import Link from "next/link";
 const Discover = () => {
 	return (
 		<section
-			id="discover-tailored-experiences"
-			className="p-4 lg:py-0 mt-[54px] lg:mt-[72px] w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-6 space-y-4">
+			className="p-4 lg:py-[72px]  mt-[54px] lg:mt-[72px] w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-6 space-y-4"
+			id="discover-tailored-experiences">
 			<div className="relative w-full lg:w-1/2 max-h-[188px] lg:max-h-64 aspect-square">
 				<Image
 					src={discoverImage}
@@ -22,13 +23,13 @@ const Discover = () => {
 					Create your own journey, personalized to suit your preferences and
 					interests, ensuring a once-in-a-lifetime adventure awaits.
 				</p>
-				<a
+				<Link
 					target="_blank"
 					href="https://pandooin.com/id/tailor-made/create?utm_source=zamrood&amp;utm_medium=website&amp;utm_campaign=premium">
 					<button className="button text-center inline-flex justify-center items-center px-6 py-2.5 rounded-full capitalize font-bold text-sm lg:text-base transition-colors ease-in-out duration-300 bg-dark-teal text-vista-white border-2 border-dark-teal hover:bg-tan hover:text-vista-white hover:border-tan !mt-6">
 						Customize Your Trip
 					</button>
-				</a>
+				</Link>
 			</div>
 		</section>
 	);

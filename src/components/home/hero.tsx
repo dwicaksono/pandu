@@ -24,7 +24,7 @@ const Hero: FC<HeroProps> = ({
 }) => {
 	return (
 		<section
-			id="hero"
+			id=""
 			className="relative flex place-items-center px-4 h-[756px] lg:h-[810px]">
 			<Image
 				alt="zambrood"

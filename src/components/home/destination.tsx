@@ -7,7 +7,8 @@ import Link from "next/link";
 import React from "react";
 
 const Destination = async () => {
-	const { data } = await getDestinations();
+	const params = { highlight: true };
+	const { data } = await getDestinations(params);
 
 	return (
 		<section className="p-4 w-full max-w-7xl mx-auto">
@@ -71,11 +72,11 @@ const Destination = async () => {
 										)}
 									</span>
 								</div>
-								<a href="/destination/premium-trip-labuan-bajo-liveboard-in-vinca-voyages-phinisi">
+								<Link href="/destination/premium-trip-labuan-bajo-liveboard-in-vinca-voyages-phinisi">
 									<button className="button text-center inline-flex justify-center items-center px-6 py-2.5 rounded-full capitalize font-bold text-sm lg:text-base transition-colors ease-in-out duration-300 bg-transparent text-dark-teal border-2 border-dark-teal hover:bg-dark-teal hover:text-vista-white hover:border-dark-teal ">
 										See Details
 									</button>
-								</a>
+								</Link>
 							</div>
 						</div>
 					</div>
@@ -98,27 +99,3 @@ const Destination = async () => {
 };
 
 export default Destination;
-
-// this response is from the getDestinations function create the interface for the response
-//  [
-// {
-// "itinerary_id": "b72aaaa2-5310-48cd-ae7e-cd079071ea8f",
-// "itinerary_name": "[PREMIUM TRIP] Labuan Bajo: Liveboard in VINCA VOYAGES Phinisi",
-// "itinerary_day": 3,
-// "itinerary_slug": "premium-trip-labuan-bajo-liveboard-in-vinca-voyages-phinisi",
-// "partner_name": "Pandooin",
-// "partner_alias": "Pandooin",
-// "itinerary_location": ", ",
-// "itinerary_short_description": "We invite you to experience the wonders of Labuan Bajo on an extraordinary adventure aboard a Phinisi boat. Join us on this exclusive journey and enjoy breathtaking natural scenery, beautiful sunsets, and captivating underwater life. Explore exotic islands, snorkel on coral reefs, and savor delicious meals served on board. Let's together create unforgettable holiday memories in Labuan Bajo!",
-// "itinerary_long_description": "<p><b>Trip date</b></p>\n\n<p>August: 2-4, 9-11, 16-18, 23-25, 30-1 Sept<br>September: 6-8, 13-15, 20-22, 27-29<br>October: 4-6, 11-13, 18 -20, 25-27<br>November: 1-3, 8-10, 15-17, 22-24, 29-1 Dec<br>December: 6-8, 13-15, 20-22, 27-29<br></p>\n\n<p><span><b>Meeting point</b></span></p>\n\n<p>Komodo Airport.</p>\n\n<p><b>Activities</b><br></p>\n\n<ol><li>Sailing.</li><li>Snorkeling/diving.</li><li>Trekking.</li><li>Sunbathing.</li></ol>\n\n<p><b>Items to bring</b></p>\n\n<ol><li>Swimsuit.</li><li>Trekking shoes.</li><li>Sunblock.</li><li>Sunglasses.</li><li>Hat.</li><li>Motion sickness medicine.</li></ol>\n\n<p><b>Additional information</b></p>\n\n<ol><li>The itinerary may change at any time according to weather conditions.</li><li>Guests who bring their own drone for usage within the national park are required to purchase a drone ticket at National Park Office at Labuan Bajo 3 days prior of the trip. The ticket cost is IDR1,500,000.</li></ol>",
-// "morph_class": "itinerary",
-// "related_galleries": [],
-// "related_variant": {
-// "itinerary_id": "b72aaaa2-5310-48cd-ae7e-cd079071ea8f",
-// "itinerary_variant_id": 1602,
-// "itinerary_variant_pub_price": "7500000",
-// "itinerary_variant_disc_price": "0",
-// "unit_name": "pax",
-// "related_unit": null
-// }
-// }]

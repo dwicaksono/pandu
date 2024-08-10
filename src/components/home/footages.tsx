@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React, { useEffect, useState } from "react";
 import ZambroodBeach from "../../../public/images/zamrood_beach.webp";
 import FishJpg from "../../../public/images/fish.jpeg";
@@ -10,6 +10,25 @@ import River from "../../../public/images/river.webp";
 import { SeparatorBlock } from "@/icons";
 
 const images = [FishJpg, ZambroodBeach, Boat, Dive, Island, River];
+
+const ImageComponent = ({
+	src,
+	alt,
+}: {
+	src: StaticImageData;
+	alt: string;
+}) => (
+	<div className="relative w-full aspect-[356/256] cursor-pointer">
+		<Image
+			alt={alt}
+			src={src}
+			loading="lazy"
+			className="object-cover object-center absolute inset-0 w-full h-full transition-opacity ease-in-out duration-1000 opacity-100"
+		/>
+	</div>
+);
+const firstImageList = images.slice(0, 3);
+const secondImageList = images.slice(3, 6);
 const Footages = () => {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -33,62 +52,28 @@ const Footages = () => {
 						alt=""
 						src={images[currentImageIndex]}
 						loading="lazy"
-						className="absolute inset-0 w-full h-full object-cover object-center transition-opacity ease-in-out duration-300 opacity-100"
+						className="absolute inset-0 w-full h-full object-cover object-center transition-opacity ease-in-out duration-1000 opacity-100"
 						sizes="100vw"
 					/>
 				</div>
 				<div className="hidden w-full lg:grid grid-cols-3 gap-6">
-					<div className="relative w-full aspect-[356/256] cursor-pointer">
-						<Image
-							alt="Zamrood Luxury Footage"
-							src={ZambroodBeach}
-							loading="lazy"
-							className="object-cover object-center absolute inset-0 w-full h-full transition-opacity ease-in-out duration-300 opacity-100"
+					{firstImageList.map((image, index) => (
+						<ImageComponent
+							key={index}
+							src={image}
+							alt={"Zamrood Luxury Footage " + index}
 						/>
-					</div>
-					<div className="relative w-full aspect-[356/256] cursor-pointer">
-						<Image
-							alt="Zamrood Luxury Footage"
-							src={FishJpg}
-							loading="lazy"
-							className="object-cover object-center absolute inset-0 w-full h-full transition-opacity ease-in-out duration-300 opacity-100"
-						/>
-					</div>
-					<div className="relative w-full aspect-[356/256] cursor-pointer">
-						<Image
-							alt="Zamrood Luxury Footage"
-							src={Boat}
-							loading="lazy"
-							className="object-cover object-center absolute inset-0 w-full h-full transition-opacity ease-in-out duration-300 opacity-100"
-						/>
-					</div>
+					))}
 					<div className="col-span-full">
 						<SeparatorBlock />
 					</div>
-					<div className="relative w-full aspect-[356/256] cursor-pointer">
-						<Image
-							alt="Zamrood Luxury Footage"
-							src={Dive}
-							loading="lazy"
-							className="object-cover object-center absolute inset-0 w-full h-full transition-opacity ease-in-out duration-300 opacity-100"
+					{secondImageList.map((image, index) => (
+						<ImageComponent
+							key={index}
+							src={image}
+							alt={"Zamrood Luxury Footage " + index}
 						/>
-					</div>
-					<div className="relative w-full aspect-[356/256] cursor-pointer">
-						<Image
-							alt="Zamrood Luxury Footage"
-							src={Island}
-							loading="lazy"
-							className="object-cover object-center absolute inset-0 w-full h-full transition-opacity ease-in-out duration-300 opacity-100"
-						/>
-					</div>
-					<div className="relative w-full aspect-[356/256] cursor-pointer">
-						<Image
-							alt="Zamrood Luxury Footage"
-							src={River}
-							loading="lazy"
-							className="object-cover object-center absolute inset-0 w-full h-full transition-opacity ease-in-out duration-300 opacity-100"
-						/>
-					</div>
+					))}
 				</div>
 			</div>
 		</section>

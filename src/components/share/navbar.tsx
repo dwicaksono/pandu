@@ -14,11 +14,11 @@ export const menuItems = [
 	{ name: "Home Page", path: "/", active: "" },
 	{
 		name: "Customize Your Trip",
-		path: "/#customize-your-trip",
-		active: "#customize-your-trip",
+		path: "/#discover-tailored-experiences",
+		active: "#discover-tailored-experiences",
 	},
 	{ name: "Destination", path: "/destination", active: "/destination" },
-	{ name: "Action", path: "/#action", active: "#action" },
+	{ name: "Article", path: "/#article", active: "#article" },
 ];
 
 const Navbar: React.FC = () => {
@@ -35,6 +35,19 @@ const Navbar: React.FC = () => {
 			setMounted(true);
 		}
 	}, [isMounted, params]);
+
+	useEffect(() => {
+		if (pathHash) {
+			const element = document.getElementById(pathHash.substring(1));
+			if (element) {
+				element.scrollIntoView({ behavior: "smooth" });
+			}
+		}
+	}, [pathHash]);
+
+	const handleLinkClick = (hash: string) => {
+		setPathHash(hash);
+	};
 
 	return (
 		<nav className="sticky top-0 z-40 font-sans bg-white w-full inline-flex justify-center">
@@ -62,7 +75,12 @@ const Navbar: React.FC = () => {
 										"border-b-[2px] border-primary",
 									pathname === item.active && "border-b-[2px] border-primary"
 								)}>
-								<Link href={item.path}>{item.name}</Link>
+								<Link
+									scroll={!!pathHash}
+									href={item.path}
+									onClick={() => handleLinkClick(item.active)}>
+									{item.name}
+								</Link>
 							</li>
 						))}
 						<Link
