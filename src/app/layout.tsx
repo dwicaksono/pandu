@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/share/navbar";
 import ModalProvider from "@/components/share/modal-provider";
+import Footer from "@/components/share/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 const unbounded = Unbounded({
@@ -35,6 +36,7 @@ export default function RootLayout({
 				<ModalProvider />
 				<Navbar />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);

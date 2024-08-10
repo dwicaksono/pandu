@@ -1,3 +1,4 @@
+import { getDestinations } from "@/actions/getDestinations";
 import { formatCurrency } from "@/helper/formatCurrency";
 import { formatDaysAndNights } from "@/helper/formatDaysAndNights";
 import { Arrow } from "@/icons";
@@ -5,8 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Destination = ({ dataSource }: any) => {
-	console.log(dataSource, "????");
+const Destination = async () => {
+	const { data } = await getDestinations();
+
 	return (
 		<section className="p-4 w-full max-w-7xl mx-auto">
 			<div className="py-6 w-full flex flex-col sm:flex-row items-start gap-6">
@@ -25,7 +27,7 @@ const Destination = ({ dataSource }: any) => {
 				</div>
 			</div>
 			<div id="destination-list" className="w-full flex flex-col">
-				{dataSource.map((data: any) => (
+				{data.map((data: any) => (
 					<div
 						key={data.itinerary_id}
 						className="py-4 lg:py-[72px] w-full flex flex-col lg:odd:flex-row-reverse lg:flex-row gap-4 lg:gap-6 items-stretch"

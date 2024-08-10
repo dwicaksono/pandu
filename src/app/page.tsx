@@ -1,4 +1,3 @@
-import { getDestinations } from "@/actions/getDestinations";
 import heroImage from "../../public/images/background.webp";
 import {
 	Hero,
@@ -7,10 +6,11 @@ import {
 	Separator,
 	Destination,
 	Footages,
+	PandooinWeb,
+	Article,
 } from "@/components/home";
 
-export default async function Home() {
-	const { data } = await getDestinations();
+export default function Home() {
 	return (
 		<main className="">
 			<Hero
@@ -26,8 +26,10 @@ export default async function Home() {
 			<BeyondPremium />
 			<Discover />
 			<Separator />
-			<Destination dataSource={data} />
+			<Destination />
 			<Footages />
+			<PandooinWeb />
+			<Article />
 		</main>
 	);
 }
