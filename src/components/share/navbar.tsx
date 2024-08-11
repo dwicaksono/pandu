@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
 	const { onOpen } = useOpenSheet();
 
 	return (
-		<nav className="sticky top-0 z-40 font-sans bg-white w-full inline-flex justify-center">
+		<nav className=" top-0 z-40 font-sans bg-white w-full inline-flex justify-center">
 			<div className="p-4 w-full max-w-7xl mx-auto inline-flex justify-between items-center">
 				<Link href="/">
 					<Image

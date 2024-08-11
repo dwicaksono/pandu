@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/share/navbar";
 import ModalProvider from "@/components/share/modal-provider";
 import Footer from "@/components/share/footer";
+import ChatFloat from "@/components/share/chat-float";
 
 const inter = Inter({ subsets: ["latin"] });
 const unbounded = Unbounded({
@@ -36,6 +37,7 @@ export default function RootLayout({
 				<ModalProvider />
 				<Navbar />
 				{children}
+				<ChatFloat />
 				<Footer />
 			</body>
 		</html>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import MobileMenu from "./mobile-menu";
+import ChatDrawer from "./chat-drawer";
 
 const ModalProvider = () => {
 	const [mounted, setMounted] = useState(false);
@@ -16,6 +17,7 @@ const ModalProvider = () => {
 	return (
 		<>
 			<MobileMenu />
+			<ChatDrawer />
 		</>
 	);
 };
