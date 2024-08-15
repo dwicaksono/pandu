@@ -1,12 +1,14 @@
+import type { Metadata } from "next";
+
 import React from "react";
 import DestinationHero from "../../../public/images/destination.webp";
 import Image from "next/image";
 import { getDestinations } from "@/actions/getDestinations";
-import { formatCurrency } from "@/helper/formatCurrency";
-import Link from "next/link";
 import { Footages, PandooinWeb } from "@/components/home";
 import { DestinationCard } from "@/components/destination";
-
+export const metadata: Metadata = {
+	title: "Destinations",
+};
 const Destination = async () => {
 	const { data } = await getDestinations();
 

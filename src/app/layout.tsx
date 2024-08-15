@@ -6,6 +6,7 @@ import Navbar from "@/components/share/navbar";
 import ModalProvider from "@/components/share/modal-provider";
 import Footer from "@/components/share/footer";
 import ChatFloat from "@/components/share/chat-float";
+import Providers from "@/components/share/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 const unbounded = Unbounded({
@@ -20,7 +21,10 @@ const theSignature = localFont({
 });
 
 export const metadata: Metadata = {
-	title: "Zambrood",
+	title: {
+		default: "Zambrood by Pandooin | test frontend project",
+		template: "%s | Zambrood by Pandooin",
+	},
 	description:
 		"Tets frontend project from pandooin as frontend developer contract",
 };
@@ -34,11 +38,13 @@ export default function RootLayout({
 		<html lang="en">
 			<body
 				className={`${inter.className} ${theSignature.variable} ${unbounded.variable}`}>
-				<ModalProvider />
-				<Navbar />
-				{children}
-				<ChatFloat />
-				<Footer />
+				<Providers>
+					<ModalProvider />
+					<Navbar />
+					{children}
+					<ChatFloat />
+					<Footer />
+				</Providers>
 			</body>
 		</html>
 	);
